@@ -8,8 +8,9 @@ import edu.wpi.first.wpilibj.livewindow.LiveWindow;
 import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
-import org.usfirst.frc.team3946.robot.commands.StowWinch;
 import org.usfirst.frc.team3946.robot.subsystems.Winch;
+import org.usfirst.frc.team3946.robot.subsystems.Drivetrain;
+import org.usfirst.frc.team3946.robot.subsystems.ExampleSubsystem;
 
 /**
  * The VM is configured to automatically run this class, and to call the
@@ -21,6 +22,9 @@ import org.usfirst.frc.team3946.robot.subsystems.Winch;
 public class Robot extends IterativeRobot {
 
 	public static final Winch winch = new Winch();
+	public static final Drivetrain drivetrain = new Drivetrain();
+	public static final ExampleSubsystem exampleSubsystem = new ExampleSubsystem();
+
 	public static OI oi;
 
 	Command autonomousCommand;
@@ -33,7 +37,7 @@ public class Robot extends IterativeRobot {
 	@Override
 	public void robotInit() {
 		oi = new OI();
-		chooser.addDefault("Default Auto", new StowWinch());
+		chooser.addDefault("Default Auto", null);
 		// chooser.addObject("My Auto", new MyAutoCommand());
 		SmartDashboard.putData("Auto mode", chooser);
 	}
