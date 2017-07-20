@@ -6,6 +6,7 @@ import org.usfirst.frc.team3946.robot.commands.StowWinch;
 import edu.wpi.first.wpilibj.DigitalInput;
 import edu.wpi.first.wpilibj.Talon;
 import edu.wpi.first.wpilibj.command.Subsystem;
+import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
 /**
  *
@@ -27,7 +28,9 @@ public class Winch extends Subsystem {
 	}
 	
 	public boolean isUp() {
-		return winchLimitSwitch.get();
+		boolean state = !winchLimitSwitch.get();
+		SmartDashboard.putBoolean("winchLimitSwitch", state);
+		return state;
 	}
 	
 }

@@ -22,9 +22,9 @@ public class StowWinch extends Command {
 	@Override
 	protected void execute() {
 		if(Robot.winch.isUp()) {
-			Robot.winch.setSpeed(0);
+			Robot.winch.setSpeed(-0.1);
 		}else {
-			Robot.winch.setSpeed(0.25);
+			Robot.winch.setSpeed(-0.35);
 		}
 	}
 

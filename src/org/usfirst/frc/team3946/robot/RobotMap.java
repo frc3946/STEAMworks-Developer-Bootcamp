@@ -17,5 +17,5 @@ public class RobotMap {
 	// public static int rangefinderPort = 1;
 	// public static int rangefinderModule = 1;
 	public static int winchMotorPort = 0;
-	public static int winchLimitSwitchPort = 1;
+	public static int winchLimitSwitchPort = 0;
 }
