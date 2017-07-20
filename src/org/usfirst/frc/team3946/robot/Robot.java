@@ -22,6 +22,8 @@ import org.usfirst.frc.team3946.robot.subsystems.Drivetrain;
 public class Robot extends IterativeRobot {
 
 	// public static final ExampleSubsystem exampleSubsystem = new ExampleSubsystem();
+	public static final Drivetrain drivetrain = new Drivetrain();
+	public static final Winch winch = new Winch();
 	public static final Scoosh scoosh = new Scoosh();
 	
 	public static OI oi;

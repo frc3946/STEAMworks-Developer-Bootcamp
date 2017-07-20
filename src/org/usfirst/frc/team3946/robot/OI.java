@@ -1,7 +1,9 @@
 package org.usfirst.frc.team3946.robot;
 
 import edu.wpi.first.wpilibj.buttons.Button;
+import edu.wpi.first.wpilibj.buttons.JoystickButton;
 
+import org.usfirst.frc.team3946.robot.commands.HangGear;
 import org.usfirst.frc.team3946.robot.commands.StowWinch;
 
 import edu.wpi.first.wpilibj.Joystick;
@@ -42,4 +44,10 @@ public class OI {
 	// button.whenReleased(new ExampleCommand());
 	public Joystick leftstick = new Joystick(RobotMap.leftJoystick);
 	public Joystick rightstick = new Joystick(RobotMap.RightJoystick);
+	
+	Button hangGearButton = new JoystickButton(rightstick, 1);
+	
+	public OI() {
+		hangGearButton.whenPressed(new HangGear());
+	}
 }
