@@ -20,7 +20,14 @@ public class Drivetrain extends Subsystem {
     public CANTalon bRight = new CANTalon(RobotMap.bRightDriveTalon);
     public CANTalon bLeft = new CANTalon(RobotMap.bLeftDriveTalon);
     public RobotDrive robotDrive = new RobotDrive(fLeft, bLeft, fRight, bRight);
-
+    
+    public Drivetrain() {
+    	robotDrive.setInvertedMotor(RobotDrive.MotorType.kFrontRight, true);
+    	robotDrive.setInvertedMotor(RobotDrive.MotorType.kFrontLeft, true);
+    	robotDrive.setInvertedMotor(RobotDrive.MotorType.kRearRight, true);
+    	robotDrive.setInvertedMotor(RobotDrive.MotorType.kRearLeft, true);
+    }
+    
     public void initDefaultCommand() {
         // Set the default command for a subsystem here.
         //setDefaultCommand(new MySpecialCommand());
