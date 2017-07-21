@@ -2,6 +2,7 @@ package org.usfirst.frc.team3946.robot;
 
 import edu.wpi.first.wpilibj.buttons.Button;
 import edu.wpi.first.wpilibj.buttons.JoystickButton;
+import edu.wpi.first.wpilibj.command.Command;
 
 import org.usfirst.frc.team3946.robot.commands.Climb;
 import org.usfirst.frc.team3946.robot.commands.HangGear;
@@ -48,10 +49,14 @@ public class OI {
 	
 	Button hangGearButton = new JoystickButton(rightstick, 1);
 	public Button climbButton = new JoystickButton(rightstick, 2);
+	Command climbCommand;
+	Button cancelClimbButton = new JoystickButton(rightstick, 10);
 	
 	public OI() {
+		climbCommand = new Climb();
 		hangGearButton.whenPressed(new HangGear());
-		climbButton.whenPressed(new Climb());
+		climbButton.whenPressed(climbCommand);
+		cancelClimbButton.cancelWhenPressed(climbCommand);
 	}
 	
 }
