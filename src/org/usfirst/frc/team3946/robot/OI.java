@@ -4,11 +4,9 @@ import edu.wpi.first.wpilibj.buttons.Button;
 import edu.wpi.first.wpilibj.buttons.JoystickButton;
 
 import org.usfirst.frc.team3946.robot.commands.HangGear;
-import org.usfirst.frc.team3946.robot.commands.StowWinch;
 import org.usfirst.frc.team3946.robot.commands.ToggleCameraView;
 
 import edu.wpi.first.wpilibj.Joystick;
-import edu.wpi.first.wpilibj.buttons.Button;
 
 
 /**
