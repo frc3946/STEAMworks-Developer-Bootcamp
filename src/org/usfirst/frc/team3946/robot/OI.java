@@ -3,6 +3,7 @@ package org.usfirst.frc.team3946.robot;
 import edu.wpi.first.wpilibj.buttons.Button;
 import edu.wpi.first.wpilibj.buttons.JoystickButton;
 
+import org.usfirst.frc.team3946.robot.commands.Climb;
 import org.usfirst.frc.team3946.robot.commands.HangGear;
 import org.usfirst.frc.team3946.robot.commands.StowWinch;
 
@@ -46,8 +47,11 @@ public class OI {
 	public Joystick rightstick = new Joystick(RobotMap.RightJoystick);
 	
 	Button hangGearButton = new JoystickButton(rightstick, 1);
+	public Button climbButton = new JoystickButton(rightstick, 2);
 	
 	public OI() {
 		hangGearButton.whenPressed(new HangGear());
+		climbButton.whenPressed(new Climb());
 	}
+	
 }
