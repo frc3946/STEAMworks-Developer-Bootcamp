@@ -1,7 +1,4 @@
-<<<<<<< HEAD
-=======
-bin
->>>>>>> master
-build
-dist
+bin/
+build/
+dist/
 
