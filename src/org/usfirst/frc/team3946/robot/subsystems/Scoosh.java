@@ -21,11 +21,11 @@ import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
  *  void stop()         stops the scoosh motor
  */
 public class Scoosh extends Subsystem {
-	Talon scooshMotor = new Talon(RobotMap.scooshMotorPort);
-	Encoder scooshEncoder = new Encoder(RobotMap.scooshEncA,RobotMap.scooshEncB,true);
-    DigitalInput lightA = new DigitalInput(RobotMap.gearSensorA);
-    DigitalInput lightB = new DigitalInput(RobotMap.gearSensorB);
-    DigitalInput lightC = new DigitalInput(RobotMap.gearSensorC);
+	private Talon scooshMotor = new Talon(RobotMap.scooshMotorPort);
+	private Encoder scooshEncoder = new Encoder(RobotMap.scooshEncA,RobotMap.scooshEncB,true);
+	private DigitalInput lightA = new DigitalInput(RobotMap.gearSensorA);
+	private DigitalInput lightB = new DigitalInput(RobotMap.gearSensorB);
+	private DigitalInput lightC = new DigitalInput(RobotMap.gearSensorC);
     private boolean calibrated = false;
 
     // Put methods for controlling this subsystem
