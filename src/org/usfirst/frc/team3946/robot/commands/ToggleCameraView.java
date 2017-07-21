@@ -10,6 +10,7 @@ import edu.wpi.first.wpilibj.command.Command;
 public class ToggleCameraView extends Command {
 	boolean startState;
 	
+	
     public ToggleCameraView() {
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);

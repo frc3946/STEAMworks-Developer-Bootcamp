@@ -1,5 +1,7 @@
 package org.usfirst.frc.team3946.robot;
 
+import edu.wpi.cscore.UsbCamera;
+import edu.wpi.first.wpilibj.CameraServer;
 import edu.wpi.first.wpilibj.IterativeRobot;
 import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.command.Scheduler;
@@ -40,11 +42,18 @@ public class Robot extends IterativeRobot {
 	 */
 	@Override
 	public void robotInit() {
+		//Init Cameras here because of
+		//weirdness with NetworkTables
+		UsbCamera frontCamera = CameraServer.getInstance().startAutomaticCapture(RobotMap.frontCameraPort);
+		UsbCamera rearCamera = CameraServer.getInstance().startAutomaticCapture(RobotMap.rearCameraPort);
+		cameras.handoffCameras(frontCamera, rearCamera);
+
 		oi = new OI();
 		chooser.addDefault("Default Auto", null);
 		// chooser.addObject("My Auto", new MyAutoCommand());
 		SmartDashboard.putData("Auto mode", chooser);
 		SmartDashboard.putData(scoosh);
+		SmartDashboard.putData(cameras);
 		calibrateSchooshCommand = new CalibrateScoosh();
 	}
 
