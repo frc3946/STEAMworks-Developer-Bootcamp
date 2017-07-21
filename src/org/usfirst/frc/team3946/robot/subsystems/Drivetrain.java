@@ -37,6 +37,9 @@ public class Drivetrain extends Subsystem {
     	
     	bRight.configEncoderCodesPerRev(360);
     	bLeft.configEncoderCodesPerRev(360);
+    	
+    	robotDrive.setInvertedMotor(RobotDrive.MotorType.kRearRight, true);
+    	robotDrive.setInvertedMotor(RobotDrive.MotorType.kRearLeft, true);
     }
     
     public void initDefaultCommand() {
