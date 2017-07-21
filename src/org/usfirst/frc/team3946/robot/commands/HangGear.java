@@ -17,6 +17,7 @@ public class HangGear extends Command {
 
     // Called just before this Command runs the first time
     protected void initialize() {
+    	setTimeout(1.0);
     	Robot.scoosh.forward();
     }
 
@@ -27,7 +28,7 @@ public class HangGear extends Command {
 
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
-    	if (this.timeSinceInitialized()>1.0) {
+    	if (isTimedOut()) {
     		return true;
     	} else {
     		return (Robot.scoosh.getAngle()>=RobotMap.scooshDownAngle);
