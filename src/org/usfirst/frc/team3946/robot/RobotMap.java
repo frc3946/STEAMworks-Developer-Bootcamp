@@ -36,6 +36,7 @@ public class RobotMap {
 
 	public static int winchMotorPort = 0;
 	public static int winchLimitSwitchPort = 0;
+	public static int winchFingertips = 1;
 	
 	public static int fRightDriveTalon = 1;
 	public static int fLeftDriveTalon = 2;
