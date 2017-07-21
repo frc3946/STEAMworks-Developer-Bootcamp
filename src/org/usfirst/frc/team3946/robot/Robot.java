@@ -7,6 +7,8 @@ import edu.wpi.first.wpilibj.livewindow.LiveWindow;
 import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
+import org.usfirst.frc.team3946.robot.commands.AutonomousDrive;
+import org.usfirst.frc.team3946.robot.commands.CalibrateDrivetrain;
 import org.usfirst.frc.team3946.robot.commands.CalibrateScoosh;
 
 import org.usfirst.frc.team3946.robot.subsystems.Scoosh;
@@ -30,6 +32,7 @@ public class Robot extends IterativeRobot {
 
 	Command autonomousCommand;
 	Command calibrateSchooshCommand;
+	Command calibrateDrivetrainCommand;
 	SendableChooser<Command> chooser = new SendableChooser<>();
 
 	/**
@@ -39,11 +42,12 @@ public class Robot extends IterativeRobot {
 	@Override
 	public void robotInit() {
 		oi = new OI();
-		chooser.addDefault("Default Auto", null);
-		// chooser.addObject("My Auto", new MyAutoCommand());
+		//chooser.addDefault("Default Auto", null);
+		chooser.addObject("My Auto", new AutonomousDrive());
 		SmartDashboard.putData("Auto mode", chooser);
 		SmartDashboard.putData(scoosh);
 		calibrateSchooshCommand = new CalibrateScoosh();
+		calibrateDrivetrainCommand = new CalibrateDrivetrain();
 	}
 
 	/**
@@ -90,6 +94,9 @@ public class Robot extends IterativeRobot {
 		if(!scoosh.isCalibrated()) {
 			calibrateSchooshCommand.start();
 		}
+		if(!drivetrain.isCalibrated()) {
+			calibrateSchooshCommand.start();
+		}
 	}
 
 	/**
@@ -110,6 +117,9 @@ public class Robot extends IterativeRobot {
 			autonomousCommand.cancel();
 		
 		if(!scoosh.isCalibrated()) {
+			calibrateSchooshCommand.start();
+		}
+		if(!drivetrain.isCalibrated()) {
 			calibrateSchooshCommand.start();
 		}
 	}
