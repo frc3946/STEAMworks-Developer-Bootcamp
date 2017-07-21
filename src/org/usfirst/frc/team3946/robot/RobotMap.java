@@ -41,4 +41,7 @@ public class RobotMap {
 	public static int fLeftDriveTalon = 2;
 	public static int bRightDriveTalon = 3;
 	public static int bLeftDriveTalon = 4;
+	
+	public static int frontCameraPort = 0;
+	public static int rearCameraPort = 1;
 }

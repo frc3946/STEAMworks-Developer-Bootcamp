@@ -11,6 +11,7 @@ import org.usfirst.frc.team3946.robot.commands.CalibrateScoosh;
 
 import org.usfirst.frc.team3946.robot.subsystems.Scoosh;
 import org.usfirst.frc.team3946.robot.subsystems.Winch;
+import org.usfirst.frc.team3946.robot.subsystems.Cameras;
 import org.usfirst.frc.team3946.robot.subsystems.Drivetrain;
 /**
  * The VM is configured to automatically run this class, and to call the
@@ -25,6 +26,7 @@ public class Robot extends IterativeRobot {
 	public static final Drivetrain drivetrain = new Drivetrain();
 	public static final Winch winch = new Winch();
 	public static final Scoosh scoosh = new Scoosh();
+	public static final Cameras cameras = new Cameras();
 	
 	public static OI oi;
 

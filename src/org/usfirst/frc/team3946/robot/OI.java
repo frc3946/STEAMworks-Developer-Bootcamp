@@ -5,6 +5,7 @@ import edu.wpi.first.wpilibj.buttons.JoystickButton;
 
 import org.usfirst.frc.team3946.robot.commands.HangGear;
 import org.usfirst.frc.team3946.robot.commands.StowWinch;
+import org.usfirst.frc.team3946.robot.commands.ToggleCameraView;
 
 import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.buttons.Button;
@@ -46,8 +47,10 @@ public class OI {
 	public Joystick rightstick = new Joystick(RobotMap.RightJoystick);
 	
 	Button hangGearButton = new JoystickButton(rightstick, 1);
+	Button toggleCameraButton = new JoystickButton(leftstick, 3);
 	
 	public OI() {
 		hangGearButton.whenPressed(new HangGear());
+		toggleCameraButton.whenPressed(new ToggleCameraView());
 	}
 }
