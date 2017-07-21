@@ -24,7 +24,7 @@ public class Drivetrain extends Subsystem {
     public RobotDrive robotDrive = new RobotDrive(bLeft, bRight);
     
     boolean calibrated = false;
-    double ticksCal = 19.099; // 360 / wheel diameter * 3.14 
+    double ticksCal = 19.099; // 360 / (wheel diameter * 3.14)
     
     public Drivetrain() {
     	fRight.changeControlMode(TalonControlMode.Follower);
