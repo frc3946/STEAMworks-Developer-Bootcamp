@@ -28,12 +28,13 @@ public class Drivetrain extends Subsystem {
     	robotDrive.setInvertedMotor(RobotDrive.MotorType.kRearLeft, true);
     }
     
+    public void Drive(double speedLeft, double speedRight){
+    	robotDrive.tankDrive(speedLeft,  speedRight);
+    }
+
     public void initDefaultCommand() {
         // Set the default command for a subsystem here.
         //setDefaultCommand(new MySpecialCommand());
     	setDefaultCommand(new JoystickTankDrive());
-    }
-    public void Drive(double speedLeft, double speedRight){
-    	robotDrive.tankDrive(speedLeft,  speedRight);
     }
 }

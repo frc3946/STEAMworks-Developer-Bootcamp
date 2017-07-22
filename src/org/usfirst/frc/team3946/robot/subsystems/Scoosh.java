@@ -30,6 +30,7 @@ public class Scoosh extends Subsystem {
 
     // Put methods for controlling this subsystem
     // here. Call these from Commands.
+    
     public boolean isCalibrated() {
     	return calibrated;
     }
@@ -39,14 +40,17 @@ public class Scoosh extends Subsystem {
 	    scooshEncoder.setDistancePerPulse(360.0/RobotMap.scooshTicksPerRev); // degrees per pulse
 	    scooshEncoder.reset();
 	}
+	
 	public double getAngle() {
 		double angle = scooshEncoder.getDistance();
 		SmartDashboard.putNumber("ScooshAngle", angle);
 		return angle;
 	}
+	
 	public double getSpeed() {
 		return scooshEncoder.getRate();
 	}
+	
 	public boolean haveGear() {
 		boolean a = !lightA.get();
 		boolean b = !lightB.get();
@@ -54,18 +58,23 @@ public class Scoosh extends Subsystem {
 		SmartDashboard.putBoolean("GearLoaded", (a||b||c));
 		return (a || b || c); 
 	}
+	
 	public void forward() {
 		scooshMotor.setSpeed(1.0);
 	}
+	
 	public void forwardSlow() {
 		scooshMotor.setSpeed(0.5);
 	}
+	
 	public void reverse() {
 		scooshMotor.setSpeed(-1.0);
 	}
+	
 	public void reverseSlow() {
 		scooshMotor.setSpeed(-0.5);
 	}
+	
 	public void stop() {
 		scooshMotor.setSpeed(0.0);
 	}
