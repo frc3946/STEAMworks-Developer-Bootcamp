@@ -11,8 +11,8 @@ import edu.wpi.first.wpilibj.networktables.NetworkTable;
 public class Cameras extends Subsystem {
 	private UsbCamera frontCamera;
 	private UsbCamera rearCamera;
+	
 	private boolean initialized = false;
-
 	private boolean frontCam = true;
 	
 	public Cameras() {
@@ -20,11 +20,6 @@ public class Cameras extends Subsystem {
 	}
     // Put methods for controlling this subsystem
     // here. Call these from Commands.
-
-    public void initDefaultCommand() {
-        // Set the default command for a subsystem here.
-        //setDefaultCommand(new MySpecialCommand());
-    }
     
     public void handoffCameras(UsbCamera front, UsbCamera rear) {
     	frontCamera = front;
@@ -55,5 +50,10 @@ public class Cameras extends Subsystem {
         		frontCam = true;
         	}
     	}
+    }
+    
+    public void initDefaultCommand() {
+        // Set the default command for a subsystem here.
+        //setDefaultCommand(new MySpecialCommand());
     }
 }

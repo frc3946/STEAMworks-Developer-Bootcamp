@@ -18,12 +18,6 @@ public class Winch extends Subsystem {
 	private Talon winchMotor = new Talon(RobotMap.winchMotorPort);
 	private DigitalInput winchLimitSwitch = new DigitalInput(RobotMap.winchLimitSwitchPort);
 	private AnalogInput winchFingertips = new AnalogInput(RobotMap.winchFingertips);
-
-	public void initDefaultCommand() {
-		// Set the default command for a subsystem here.
-		// setDefaultCommand(new MySpecialCommand());
-		setDefaultCommand(new StowWinch());
-	}
 	
 	public void setSpeed(double newSpeed) {
 		winchMotor.set(newSpeed);
@@ -41,4 +35,9 @@ public class Winch extends Subsystem {
 		return state;
 	}
 	
+	public void initDefaultCommand() {
+		// Set the default command for a subsystem here.
+		// setDefaultCommand(new MySpecialCommand());
+		setDefaultCommand(new StowWinch());
+	}
 }

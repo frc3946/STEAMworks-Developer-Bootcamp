@@ -42,11 +42,6 @@ public class Drivetrain extends Subsystem {
     	robotDrive.setInvertedMotor(RobotDrive.MotorType.kRearRight, true);
     }
     
-    public void initDefaultCommand() {
-        // Set the default command for a subsystem here.
-        //setDefaultCommand(new MySpecialCommand());
-    	setDefaultCommand(new JoystickTankDrive());
-    }
     public void Drive(double speedLeft, double speedRight){
     	robotDrive.tankDrive(speedLeft,  speedRight);
     }
@@ -56,7 +51,6 @@ public class Drivetrain extends Subsystem {
     	double rawData = bRight.getEncPosition();
     	return - rawData/ticksCal;
     }
-    
     	
     public double getLeftDistance()
     {
@@ -73,5 +67,11 @@ public class Drivetrain extends Subsystem {
     
     public boolean isCalibrated() {
     	return calibrated;
+    }
+    
+    public void initDefaultCommand() {
+        // Set the default command for a subsystem here.
+        //setDefaultCommand(new MySpecialCommand());
+    	setDefaultCommand(new JoystickTankDrive());
     }
 }

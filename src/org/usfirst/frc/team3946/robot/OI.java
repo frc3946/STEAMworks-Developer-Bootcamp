@@ -46,21 +46,20 @@ public class OI {
 	public Joystick leftstick = new Joystick(RobotMap.leftJoystick);
 	public Joystick rightstick = new Joystick(RobotMap.RightJoystick);
 	
-	Button hangGearButton = new JoystickButton(rightstick, 1);
-
 	Button toggleCameraButton = new JoystickButton(leftstick, 3);
 
-	public Button climbButton = new JoystickButton(rightstick, 2);
-	Command climbCommand;
-	Button cancelClimbButton = new JoystickButton(rightstick, 10);
+	Button hangGearButton = new JoystickButton(rightstick, 1);
 
+	public Button climbButton = new JoystickButton(rightstick, 2);
+	Button cancelClimbButton = new JoystickButton(rightstick, 10);
+	Command climbCommand;
 	
 	public OI() {
-		climbCommand = new Climb();
 		hangGearButton.whenPressed(new HangGear());
 
 		toggleCameraButton.whenPressed(new ToggleCameraView());
-
+		
+		climbCommand = new Climb();
 		climbButton.whenPressed(climbCommand);
 		cancelClimbButton.cancelWhenPressed(climbCommand);
 	}
