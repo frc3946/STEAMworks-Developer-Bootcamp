@@ -1,5 +1,7 @@
 package org.usfirst.frc.team3946.robot;
 
+import edu.wpi.cscore.UsbCamera;
+import edu.wpi.first.wpilibj.CameraServer;
 import edu.wpi.first.wpilibj.IterativeRobot;
 import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.command.Scheduler;
@@ -13,6 +15,7 @@ import org.usfirst.frc.team3946.robot.commands.CalibrateScoosh;
 
 import org.usfirst.frc.team3946.robot.subsystems.Scoosh;
 import org.usfirst.frc.team3946.robot.subsystems.Winch;
+import org.usfirst.frc.team3946.robot.subsystems.Cameras;
 import org.usfirst.frc.team3946.robot.subsystems.Drivetrain;
 /**
  * The VM is configured to automatically run this class, and to call the
@@ -27,6 +30,7 @@ public class Robot extends IterativeRobot {
 	public static final Drivetrain drivetrain = new Drivetrain();
 	public static final Winch winch = new Winch();
 	public static final Scoosh scoosh = new Scoosh();
+	public static final Cameras cameras = new Cameras();
 	
 	public static OI oi;
 
@@ -41,11 +45,18 @@ public class Robot extends IterativeRobot {
 	 */
 	@Override
 	public void robotInit() {
+		//Init Cameras here because of
+		//weirdness with NetworkTables
+		UsbCamera frontCamera = CameraServer.getInstance().startAutomaticCapture(RobotMap.frontCameraPort);
+		UsbCamera rearCamera = CameraServer.getInstance().startAutomaticCapture(RobotMap.rearCameraPort);
+		cameras.handoffCameras(frontCamera, rearCamera);
+
 		oi = new OI();
 		//chooser.addDefault("Default Auto", null);
 		chooser.addObject("My Auto", new AutonomousDrive());
 		SmartDashboard.putData("Auto mode", chooser);
 		SmartDashboard.putData(scoosh);
+		SmartDashboard.putData(cameras);
 		calibrateSchooshCommand = new CalibrateScoosh();
 		calibrateDrivetrainCommand = new CalibrateDrivetrain();
 	}
