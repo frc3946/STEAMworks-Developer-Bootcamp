@@ -26,7 +26,7 @@ public class Drivetrain extends Subsystem {
     private boolean demoDrive = false;
     
     private boolean calibrated = false;
-    private double ticksCal = 19.099; // 360 / (wheel diameter * 3.14)
+    private double codesPerInch = 19.0986; // (Codes Per Rev) / ( Wheel Diameter * pi )
     
     public Drivetrain() {
     	fLeft.changeControlMode(TalonControlMode.Follower);
@@ -35,6 +35,7 @@ public class Drivetrain extends Subsystem {
     	
     	bLeft.setFeedbackDevice(FeedbackDevice.QuadEncoder);
     	bRight.setFeedbackDevice(FeedbackDevice.QuadEncoder);
+    	bRight.reverseSensor(true);
     	
     	bLeft.configEncoderCodesPerRev(360);
     	bRight.configEncoderCodesPerRev(360);
@@ -65,20 +66,28 @@ public class Drivetrain extends Subsystem {
     	return demoDrive;
     }
     
+    /**
+     * Get Distance of Right wheels since last zeroEncoders()
+     * @return distance in inches
+     */
     public double getRightDistance()
     {
-    	double rawData = bRight.getEncPosition();
-    	double calcRightData = - rawData/ticksCal;
-    	SmartDashboard.putNumber("RightDriveDistance", calcRightData);
-    	return calcRightData;
+    	int numCodes = bRight.getEncPosition();
+    	double inches = numCodes/codesPerInch;
+    	SmartDashboard.putNumber("RightDriveDistance", inches);
+    	return inches;
     }
-    	
+    
+    /**
+     * Get Distance of Left wheels since last zeroEncoders()
+     * @return distance in inches
+     */
     public double getLeftDistance()
     {
-    	double rawLeftData = bLeft.getEncPosition();
-    	double calcLeftData = rawLeftData/ticksCal;
-    	SmartDashboard.putNumber("LeftDriveDistance", calcLeftData);
-    	return calcLeftData;
+    	int numCodes = bLeft.getEncPosition();
+    	double inches = numCodes/codesPerInch;
+    	SmartDashboard.putNumber("LeftDriveDistance", inches);
+    	return inches;
     }
     
     public void zeroEncoders()
