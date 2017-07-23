@@ -7,6 +7,7 @@ import edu.wpi.first.wpilibj.command.Command;
 import org.usfirst.frc.team3946.robot.commands.Climb;
 import org.usfirst.frc.team3946.robot.commands.HangGear;
 import org.usfirst.frc.team3946.robot.commands.ToggleCameraView;
+import org.usfirst.frc.team3946.robot.commands.ToggleDriveMode;
 
 import edu.wpi.first.wpilibj.Joystick;
 
@@ -54,6 +55,8 @@ public class OI {
 	Button cancelClimbButton = new JoystickButton(rightstick, 10);
 	Command climbCommand;
 	
+	Button demoDriveButton = new JoystickButton(leftstick, 10);
+	
 	public OI() {
 		hangGearButton.whenPressed(new HangGear());
 
@@ -62,6 +65,8 @@ public class OI {
 		climbCommand = new Climb();
 		climbButton.whenPressed(climbCommand);
 		cancelClimbButton.cancelWhenPressed(climbCommand);
+		
+		demoDriveButton.whenPressed(new ToggleDriveMode());
 	}
 	
 }

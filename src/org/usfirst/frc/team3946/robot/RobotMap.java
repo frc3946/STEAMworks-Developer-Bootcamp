@@ -50,24 +50,6 @@ public class RobotMap {
 	public static double scooshBackAngle = 0.0;  // Place to wait for gears
 	// TODO: These next two need to be calibrated!
 	public static double scooshHoldAngle = 30.0; // Place to hold gears when detected
-<<<<<<< HEAD
 	public static double scooshDownAngle = 100.0; // Place to put scoosh to hang gears 
 
-	public static int leftJoystick = 0;
-	public static int RightJoystick = 1;
-
-	public static int winchMotorPort = 0;
-	public static int winchLimitSwitchPort = 0;
-	public static int winchFingertips = 1;
-	
-	public static int bLeftDriveTalon = 4;
-	public static int bRightDriveTalon = 3;
-	public static int fLeftDriveTalon = 2;
-	public static int fRightDriveTalon = 1;
-
-	public static int frontCameraPort = 0;
-	public static int rearCameraPort = 1;
-=======
-	public static double scooshDownAngle = 100.0; // Place to put scoosh to hang gears
->>>>>>> master
 }
