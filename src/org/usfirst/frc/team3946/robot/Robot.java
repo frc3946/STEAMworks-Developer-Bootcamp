@@ -27,10 +27,10 @@ import org.usfirst.frc.team3946.robot.subsystems.Drivetrain;
 public class Robot extends IterativeRobot {
 
 	// public static final ExampleSubsystem exampleSubsystem = new ExampleSubsystem();
-	public static final Drivetrain drivetrain = new Drivetrain();
-	public static final Winch winch = new Winch();
-	public static final Scoosh scoosh = new Scoosh();
 	public static final Cameras cameras = new Cameras();
+	public static final Drivetrain drivetrain = new Drivetrain();
+	public static final Scoosh scoosh = new Scoosh();
+	public static final Winch winch = new Winch();
 	
 	public static OI oi;
 
@@ -52,11 +52,15 @@ public class Robot extends IterativeRobot {
 		cameras.handoffCameras(frontCamera, rearCamera);
 
 		oi = new OI();
-		//chooser.addDefault("Default Auto", null);
+
 		chooser.addObject("My Auto", new AutonomousDrive());
 		SmartDashboard.putData("Auto mode", chooser);
-		SmartDashboard.putData(scoosh);
+		
 		SmartDashboard.putData(cameras);
+		SmartDashboard.putData(drivetrain);
+		SmartDashboard.putData(scoosh);
+		SmartDashboard.putData(winch);
+		
 		calibrateSchooshCommand = new CalibrateScoosh();
 		calibrateDrivetrainCommand = new CalibrateDrivetrain();
 	}
