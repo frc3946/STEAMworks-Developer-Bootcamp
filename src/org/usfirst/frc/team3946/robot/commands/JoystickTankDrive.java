@@ -22,9 +22,7 @@ public class JoystickTankDrive extends Command {
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-    	SmartDashboard.putNumber("LeftDriveDistance", Robot.drivetrain.getLeftDistance());
-    	SmartDashboard.putNumber("RightDriveDistance", Robot.drivetrain.getRightDistance());
-    	Robot.drivetrain.Drive(Robot.oi.leftstick.getY(), Robot.oi.rightstick.getY());
+    	Robot.drivetrain.tankDrive(Robot.oi.leftstick.getY(), Robot.oi.rightstick.getY());
     }
 
     // Make this return true when this Command no longer needs to run execute()
@@ -39,6 +37,6 @@ public class JoystickTankDrive extends Command {
     // Called when another command which requires one or more of the same
     // subsystems is scheduled to run
     protected void interrupted() {
-    	Robot.drivetrain.Drive(0, 0);
+    	Robot.drivetrain.tankDrive(0, 0);
     }
 }

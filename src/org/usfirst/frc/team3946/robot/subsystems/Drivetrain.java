@@ -1,5 +1,6 @@
 package org.usfirst.frc.team3946.robot.subsystems;
 
+import org.usfirst.frc.team3946.robot.Robot;
 import org.usfirst.frc.team3946.robot.RobotMap;
 import org.usfirst.frc.team3946.robot.commands.JoystickTankDrive;
 
@@ -43,7 +44,9 @@ public class Drivetrain extends Subsystem {
     	robotDrive.setInvertedMotor(RobotDrive.MotorType.kRearRight, true);
     }
     
-    public void Drive(double speedLeft, double speedRight){
+    public void tankDrive(double speedLeft, double speedRight){
+    	getLeftDistance();
+    	getRightDistance();
     	robotDrive.tankDrive(speedLeft,  speedRight);
     }
     
@@ -66,13 +69,17 @@ public class Drivetrain extends Subsystem {
     public double getRightDistance()
     {
     	double rawData = bRight.getEncPosition();
-    	return - rawData/ticksCal;
+    	double calcRightData = - rawData/ticksCal;
+    	SmartDashboard.putNumber("RightDriveDistance", calcRightData);
+    	return calcRightData;
     }
     	
     public double getLeftDistance()
     {
     	double rawLeftData = bLeft.getEncPosition();
-    	return rawLeftData/ticksCal;
+    	double calcLeftData = rawLeftData/ticksCal;
+    	SmartDashboard.putNumber("LeftDriveDistance", calcLeftData);
+    	return calcLeftData;
     }
     
     public void zeroEncoders()
