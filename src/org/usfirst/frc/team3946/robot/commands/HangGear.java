@@ -10,39 +10,39 @@ import org.usfirst.frc.team3946.robot.RobotMap;
  */
 public class HangGear extends Command {
 
-    public HangGear() {
-        // Use requires() here to declare subsystem dependencies
-        requires(Robot.scoosh);
-    }
+	public HangGear() {
+		// Use requires() here to declare subsystem dependencies
+		requires(Robot.scoosh);
+	}
 
-    // Called just before this Command runs the first time
-    protected void initialize() {
-    	setTimeout(1.0);
-    	Robot.scoosh.forward();
-    }
+	// Called just before this Command runs the first time
+	protected void initialize() {
+		setTimeout(1.0);
+		Robot.scoosh.forward();
+	}
 
-    // Called repeatedly when this Command is scheduled to run
-    protected void execute() {
-    	Robot.scoosh.forward();
-    }
+	// Called repeatedly when this Command is scheduled to run
+	protected void execute() {
+		Robot.scoosh.forward();
+	}
 
-    // Make this return true when this Command no longer needs to run execute()
-    protected boolean isFinished() {
-    	if (isTimedOut()) {
-    		return true;
-    	} else {
-    		return (Robot.scoosh.getAngle()>=RobotMap.scooshDownAngle);
-    	}
-    }
+	// Make this return true when this Command no longer needs to run execute()
+	protected boolean isFinished() {
+		if (isTimedOut()) {
+			return true;
+		} else {
+			return (Robot.scoosh.getAngle()>=RobotMap.scooshDownAngle);
+		}
+	}
 
-    // Called once after isFinished returns true
-    protected void end() {
-    	Robot.scoosh.stop();
-    }
+	// Called once after isFinished returns true
+	protected void end() {
+		Robot.scoosh.stop();
+	}
 
-    // Called when another command which requires one or more of the same
-    // subsystems is scheduled to run
-    protected void interrupted() {
-    	Robot.scoosh.stop();
-    }
+	// Called when another command which requires one or more of the same
+	// subsystems is scheduled to run
+	protected void interrupted() {
+		Robot.scoosh.stop();
+	}
 }

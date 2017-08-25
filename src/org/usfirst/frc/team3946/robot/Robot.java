@@ -53,7 +53,7 @@ public class Robot extends IterativeRobot {
 
 		oi = new OI();
 
-		chooser.addObject("My Auto", new AutonomousDrive());
+		chooser.addObject("Auto Drive", new AutonomousDrive());
 		SmartDashboard.putData("Auto mode", chooser);
 		
 		SmartDashboard.putData(cameras);

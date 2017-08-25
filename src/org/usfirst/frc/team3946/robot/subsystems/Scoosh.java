@@ -14,11 +14,11 @@ import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
  *  Methods:
  *  void setZeroAngle() synchronizes the encoder.  Call when the scoosh is all the way back.
  *  double getAngle()   gets the encoder angle in degrees forward from backstop
- *  void forward()      runs the scoosh motor forward (outboard) at full speed
+ *  void forward()	  runs the scoosh motor forward (outboard) at full speed
  *  void forwardSlow()  runs the scoosh motor forward at slow speed 
- *  void reverse()      runs the scoosh motor inboard at full speed
+ *  void reverse()	  runs the scoosh motor inboard at full speed
  *  void reverseSlow()  runs the scoosh motor inboard at slow speed
- *  void stop()         stops the scoosh motor
+ *  void stop()		 stops the scoosh motor
  */
 public class Scoosh extends Subsystem {
 	private Talon scooshMotor = new Talon(RobotMap.scooshMotorPort);
@@ -26,19 +26,19 @@ public class Scoosh extends Subsystem {
 	private DigitalInput lightA = new DigitalInput(RobotMap.gearSensorA);
 	private DigitalInput lightB = new DigitalInput(RobotMap.gearSensorB);
 	private DigitalInput lightC = new DigitalInput(RobotMap.gearSensorC);
-    private boolean calibrated = false;
+	private boolean calibrated = false;
 
-    // Put methods for controlling this subsystem
-    // here. Call these from Commands.
-    
-    public boolean isCalibrated() {
-    	return calibrated;
-    }
-    
+	// Put methods for controlling this subsystem
+	// here. Call these from Commands.
+	
+	public boolean isCalibrated() {
+		return calibrated;
+	}
+	
 	public void setZeroAngle () {
 		calibrated = true;
-	    scooshEncoder.setDistancePerPulse(360.0/RobotMap.scooshTicksPerRev); // degrees per pulse
-	    scooshEncoder.reset();
+		scooshEncoder.setDistancePerPulse(360.0/RobotMap.scooshTicksPerRev); // degrees per pulse
+		scooshEncoder.reset();
 	}
 	
 	public double getAngle() {
@@ -79,9 +79,9 @@ public class Scoosh extends Subsystem {
 		scooshMotor.setSpeed(0.0);
 	}
 
-    public void initDefaultCommand() {
-        // Set the default command for a subsystem here.
-    	setDefaultCommand(new LoadHoldGear());
-    }
+	public void initDefaultCommand() {
+		// Set the default command for a subsystem here.
+		setDefaultCommand(new LoadHoldGear());
+	}
 }
 

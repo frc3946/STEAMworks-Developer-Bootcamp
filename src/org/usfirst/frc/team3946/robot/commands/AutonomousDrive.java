@@ -8,32 +8,44 @@ import edu.wpi.first.wpilibj.command.Command;
  *
  */
 public class AutonomousDrive extends Command {
+	double setPoint = 275;
+	
+	public AutonomousDrive() {
+		// Use requires() here to declare subsystem dependencies
+		// eg. requires(chassis);
+		requires(Robot.drivetrain);
+	}
 
-    public AutonomousDrive() {
-        // Use requires() here to declare subsystem dependencies
-        // eg. requires(chassis);
-    	requires(Robot.drivetrain);
-    }
+	// Called just before this Command runs the first time
+	protected void initialize() {
+		Robot.drivetrain.tankDrive(0, 0);
+	}
 
-    // Called just before this Command runs the first time
-    protected void initialize() {
-    }
+	// Called repeatedly when this Command is scheduled to run
+	protected void execute() {
+		if(Robot.drivetrain.isCalibrated()) {
+			Robot.drivetrain.tankDrive(
+				(Robot.drivetrain.getLeftDistance() < setPoint)?0.3:0.1,
+				(Robot.drivetrain.getRightDistance() < setPoint)?0.3:0.1
+			);
+		} else {
+			Robot.drivetrain.zeroEncoders();
+		}
+	}
 
-    // Called repeatedly when this Command is scheduled to run
-    protected void execute() {
-    }
+	// Make this return true when this Command no longer needs to run execute()
+	protected boolean isFinished() {
+		return (Robot.drivetrain.getLeftDistance() >= setPoint && Robot.drivetrain.getRightDistance() >= setPoint);
+	}
 
-    // Make this return true when this Command no longer needs to run execute()
-    protected boolean isFinished() {
-        return false;
-    }
+	// Called once after isFinished returns true
+	protected void end() {
+		Robot.drivetrain.tankDrive(0, 0);
+	}
 
-    // Called once after isFinished returns true
-    protected void end() {
-    }
-
-    // Called when another command which requires one or more of the same
-    // subsystems is scheduled to run
-    protected void interrupted() {
-    }
+	// Called when another command which requires one or more of the same
+	// subsystems is scheduled to run
+	protected void interrupted() {
+		end();
+	}
 }
