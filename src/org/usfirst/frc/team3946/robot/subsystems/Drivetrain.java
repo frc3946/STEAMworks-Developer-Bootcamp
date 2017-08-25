@@ -26,7 +26,7 @@ public class Drivetrain extends Subsystem {
 	private boolean demoDrive = false;
 	
 	private boolean calibrated = false;
-	private double codesPerInch = 19.0986; // (Codes Per Rev) / ( Wheel Diameter * pi )
+	private double codesPerInch = RobotMap.drivetrainTicksPerRev;
 	
 	public Drivetrain() {
 		fLeft.changeControlMode(TalonControlMode.Follower);

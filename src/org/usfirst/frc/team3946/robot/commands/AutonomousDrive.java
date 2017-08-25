@@ -1,6 +1,7 @@
 package org.usfirst.frc.team3946.robot.commands;
 
 import org.usfirst.frc.team3946.robot.Robot;
+import org.usfirst.frc.team3946.robot.RobotMap;
 
 import edu.wpi.first.wpilibj.command.Command;
 
@@ -8,7 +9,7 @@ import edu.wpi.first.wpilibj.command.Command;
  *
  */
 public class AutonomousDrive extends Command {
-	double setPoint = 275;
+	double setPoint = RobotMap.autonomousDriveSetPoint;
 	
 	public AutonomousDrive() {
 		// Use requires() here to declare subsystem dependencies

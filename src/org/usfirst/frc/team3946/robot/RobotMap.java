@@ -48,8 +48,10 @@ public class RobotMap {
 	// Settings
 	public static double scooshTicksPerRev = 7.0*60.0; // quadrature cycles - 7 on motor, 60 for gearbox
 	public static double scooshBackAngle = 0.0;  // Place to wait for gears
-	// TODO: These next two need to be calibrated!
 	public static double scooshHoldAngle = 30.0; // Place to hold gears when detected
 	public static double scooshDownAngle = 100.0; // Place to put scoosh to hang gears 
+	
+	public static double drivetrainTicksPerRev = 19.0986; // (Codes Per Rev) / ( Wheel Diameter * pi )
+	public static double autonomousDriveSetPoint = 60; //Inches
 
 }
