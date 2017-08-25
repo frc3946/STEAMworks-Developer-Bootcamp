@@ -24,8 +24,8 @@ public class Climb extends Command {
 	// Called repeatedly when this Command is scheduled to run
 	protected void execute() {
 		if( Robot.oi.climbButton.get() && prevButton == false) {
-				isRunning = !isRunning;
-				prevButton = true;
+			isRunning = !isRunning;
+			prevButton = true;
 		}
 		if(isRunning && Robot.winch.isTouching() < 800) {
 			Robot.winch.setSpeed(1);

@@ -12,13 +12,13 @@ import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 /**
  *  The scoosh subsystem.  
  *  Methods:
- *  void setZeroAngle() synchronizes the encoder.  Call when the scoosh is all the way back.
- *  double getAngle()   gets the encoder angle in degrees forward from backstop
- *  void forward()	  runs the scoosh motor forward (outboard) at full speed
- *  void forwardSlow()  runs the scoosh motor forward at slow speed 
- *  void reverse()	  runs the scoosh motor inboard at full speed
- *  void reverseSlow()  runs the scoosh motor inboard at slow speed
- *  void stop()		 stops the scoosh motor
+ *  void setZeroAngle()	synchronizes the encoder.  Call when the scoosh is all the way back.
+ *  double getAngle()	gets the encoder angle in degrees forward from backstop
+ *  void forward()		runs the scoosh motor forward (outboard) at full speed
+ *  void forwardSlow()	runs the scoosh motor forward at slow speed 
+ *  void reverse()		runs the scoosh motor inboard at full speed
+ *  void reverseSlow()	runs the scoosh motor inboard at slow speed
+ *  void stop()			stops the scoosh motor
  */
 public class Scoosh extends Subsystem {
 	private Talon scooshMotor = new Talon(RobotMap.scooshMotorPort);
